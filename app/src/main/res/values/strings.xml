@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="title_fragment_latest_movies">Latest Movies</string>
+    <string name="menu_profile">Profile</string>
 </resources>

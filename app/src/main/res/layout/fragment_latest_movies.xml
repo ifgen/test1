@@ -9,7 +9,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.LatestMoviesFragment">
+        tools:context=".ui.latest_movies.LatestMoviesFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:clipToPadding="false"

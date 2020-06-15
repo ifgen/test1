@@ -12,7 +12,8 @@ import io.qwe1991.test1.data.TmdbApiService
 import io.qwe1991.test1.data.TmdbRepository
 import io.qwe1991.test1.data.db.AppDatabase
 import io.qwe1991.test1.data.db.MovieDao
-import io.qwe1991.test1.ui.LatestMoviesViewModel
+import io.qwe1991.test1.ui.latest_movies.LatestMoviesViewModel
+import io.qwe1991.test1.ui.movie_detail.MovieDetailViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.kodein.di.Kodein
@@ -64,8 +65,16 @@ class App : Application(), KodeinAware {
         // view models
         bind<ViewModelProvider.Factory>() with singleton { KodeinViewModelFactory(kodein) }
 
-        bind<LatestMoviesViewModel>() with singleton { LatestMoviesViewModel(this@App) }
-        bind<MovieDetailViewModel>() with singleton { MovieDetailViewModel(this@App) }
+        bind<LatestMoviesViewModel>() with singleton {
+            LatestMoviesViewModel(
+                this@App
+            )
+        }
+        bind<MovieDetailViewModel>() with singleton {
+            MovieDetailViewModel(
+                this@App
+            )
+        }
 
         bind<TmdbRepository>() with singleton { TmdbRepository(instance<TmdbApiService>()) }
 

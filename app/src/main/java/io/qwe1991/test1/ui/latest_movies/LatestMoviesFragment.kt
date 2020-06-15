@@ -1,4 +1,4 @@
-package io.qwe1991.test1.ui
+package io.qwe1991.test1.ui.latest_movies
 
 import android.os.Bundle
 import android.util.Log
@@ -11,6 +11,7 @@ import io.qwe1991.test1.MainActivity
 import io.qwe1991.test1.R
 import io.qwe1991.test1.base.BaseBindingFragment
 import io.qwe1991.test1.databinding.FragmentLatestMoviesBinding
+import io.qwe1991.test1.ui.LatestMoviesFragmentDirections
 import kotlinx.android.synthetic.main.fragment_latest_movies.*
 
 
@@ -32,7 +33,9 @@ class LatestMoviesFragment :
 
         val adapter = LatestMoviesAdapter {
             findNavController().navigate(
-                LatestMoviesFragmentDirections.actionLatestMoviesFragmentToMovieDetailFragment(it)
+                LatestMoviesFragmentDirections.actionLatestMoviesFragmentToMovieDetailFragment(
+                    it
+                )
             )
         }
 

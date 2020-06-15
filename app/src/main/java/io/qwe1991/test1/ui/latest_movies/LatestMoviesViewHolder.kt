@@ -1,4 +1,4 @@
-package io.qwe1991.test1.ui
+package io.qwe1991.test1.ui.latest_movies
 
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable

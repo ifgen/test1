@@ -1,4 +1,4 @@
-package io.qwe1991.test1.ui
+package io.qwe1991.test1.ui.latest_movies
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -10,7 +10,9 @@ import io.qwe1991.test1.databinding.ItemLatestMovieBinding
 class LatestMoviesAdapter(
     private val clickCallback: (movie: MovieEntity) -> Unit
 ) :
-    PagedListAdapter<MovieEntity, LatestMoviesViewHolder>(DIFF_CALLBACK) {
+    PagedListAdapter<MovieEntity, LatestMoviesViewHolder>(
+        DIFF_CALLBACK
+    ) {
     override fun onBindViewHolder(holder: LatestMoviesViewHolder, position: Int) {
         val movie: MovieEntity? = getItem(position)
 

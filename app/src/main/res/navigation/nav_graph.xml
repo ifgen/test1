@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/latestMoviesFragment"
-        android:name="io.qwe1991.test1.ui.LatestMoviesFragment"
+        android:name="io.qwe1991.test1.ui.latest_movies.LatestMoviesFragment"
         android:label="fragment_latest_movies"
         tools:layout="@layout/fragment_latest_movies" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/movieDetailFragment"
-        android:name="io.qwe1991.test1.MovieDetailFragment"
+        android:name="io.qwe1991.test1.ui.movie_detail.MovieDetailFragment"
         tools:layout="@layout/fragment_movie_detail">
         <argument
             android:name="movie"

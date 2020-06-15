@@ -73,6 +73,8 @@ class LatestMoviesViewModel(app: Application) : BaseViewModel(app) {
                     movieDao.insertAll(movieEntityConverter.convertList(result.results))
                 } catch (e: Exception) {
                     error.postValue(e)
+                } finally {
+                    isLoading.postValue(false)
                 }
             }
         }

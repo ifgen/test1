@@ -5,7 +5,6 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import io.qwe1991.test1.MainActivity
-import io.qwe1991.test1.MovieDetailFragmentArgs
 import io.qwe1991.test1.R
 import io.qwe1991.test1.base.BaseBindingFragment
 import io.qwe1991.test1.databinding.FragmentMovieDetailBinding

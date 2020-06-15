@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -11,7 +12,6 @@ import io.qwe1991.test1.MainActivity
 import io.qwe1991.test1.R
 import io.qwe1991.test1.base.BaseBindingFragment
 import io.qwe1991.test1.databinding.FragmentLatestMoviesBinding
-import io.qwe1991.test1.ui.LatestMoviesFragmentDirections
 import kotlinx.android.synthetic.main.fragment_latest_movies.*
 
 
@@ -46,6 +46,14 @@ class LatestMoviesFragment :
             Log.e("@!", "err", it)
             Toast.makeText(requireContext(), it.localizedMessage, Toast.LENGTH_SHORT).show()
         })
+
+        viewModel.isLoading.observe(viewLifecycleOwner, Observer {
+            latestMoviesSwipeToRefresh.isRefreshing = it
+        })
+
+        latestMoviesSwipeToRefresh.setOnRefreshListener {
+            viewModel.loadMoviesList(1)
+        }
     }
 
     override fun getContentView(): Int =

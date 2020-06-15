@@ -1,6 +1,7 @@
 package io.qwe1991.test1.data
 
 import com.squareup.moshi.Json
+import java.util.*
 
 data class Response(
 
@@ -35,10 +36,10 @@ data class ResultsItem(
     val overview: String? = null,
 
     @Json(name="original_language")
-    val originalLanguage: String? = null,
+    val original_language: String? = null,
 
     @Json(name="original_title")
-    val originalTitle: String? = null,
+    val original_title: String? = null,
 
     @Json(name="video")
     val video: Boolean? = null,
@@ -47,22 +48,22 @@ data class ResultsItem(
     val title: String? = null,
 
     @Json(name="genre_ids")
-    val genreIds: List<Int?>? = null,
+    val genre_ids: List<Int?>? = null,
 
     @Json(name="poster_path")
     val poster_path: String? = null,
 
     @Json(name="backdrop_path")
-    val backdropPath: String? = null,
+    val backdrop_path: String? = null,
 
     @Json(name="release_date")
-    val releaseDate: String? = null,
+    val release_date: String? = null,
 
     @Json(name="popularity")
     val popularity: Double? = null,
 
     @Json(name="vote_average")
-    val voteAverage: Double? = null,
+    val vote_average: Double? = null,
 
     @Json(name="id")
     val id: Int? = null,
@@ -71,5 +72,5 @@ data class ResultsItem(
     val adult: Boolean? = null,
 
     @Json(name="vote_count")
-    val voteCount: Int? = null
+    val vote_count: Int? = null
 )

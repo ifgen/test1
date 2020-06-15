@@ -1,10 +1,7 @@
 package io.qwe1991.test1.data.db
 
 import androidx.paging.DataSource
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import io.qwe1991.test1.data.db.entity.MovieEntity
 
 @Dao
@@ -18,7 +15,7 @@ interface MovieDao {
     @Insert
     fun insertAll(vararg movies: MovieEntity)
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(movies: List<MovieEntity>)
 
     @Delete

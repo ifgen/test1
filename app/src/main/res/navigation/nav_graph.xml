@@ -9,5 +9,17 @@
         android:id="@+id/latestMoviesFragment"
         android:name="io.qwe1991.test1.ui.LatestMoviesFragment"
         android:label="fragment_latest_movies"
-        tools:layout="@layout/fragment_latest_movies" />
+        tools:layout="@layout/fragment_latest_movies" >
+        <action
+            android:id="@+id/action_latestMoviesFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetailFragment"
+        android:name="io.qwe1991.test1.MovieDetailFragment"
+        tools:layout="@layout/fragment_movie_detail">
+        <argument
+            android:name="movie"
+            app:argType="io.qwe1991.test1.data.db.entity.MovieEntity" />
+    </fragment>
 </navigation>

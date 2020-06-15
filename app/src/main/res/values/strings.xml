@@ -2,4 +2,7 @@
     <string name="app_name">My Application</string>
     <string name="title_fragment_latest_movies">Latest Movies</string>
     <string name="menu_profile">Profile</string>
+    <string name="score">Score:</string>
+    <string name="rating">Rating:</string>
+    <string name="release_date">Release Date:</string>
 </resources>

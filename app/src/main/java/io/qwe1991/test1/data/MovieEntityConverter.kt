@@ -8,7 +8,11 @@ class MovieEntityConverter {
             from.id ?: 0,
             from.title ?: "",
             from.popularity ?: 0.0,
-            from.poster_path
+            from.poster_path,
+            from.vote_average ?: 0.0,
+            from.adult ?: true,
+            from.release_date,
+            from.overview ?: ""
         )
     }
 

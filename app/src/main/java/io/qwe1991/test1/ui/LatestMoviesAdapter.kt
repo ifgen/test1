@@ -7,12 +7,14 @@ import androidx.recyclerview.widget.DiffUtil
 import io.qwe1991.test1.data.db.entity.MovieEntity
 import io.qwe1991.test1.databinding.ItemLatestMovieBinding
 
-class LatestMoviesAdapter() :
+class LatestMoviesAdapter(
+    private val clickCallback: (movie: MovieEntity) -> Unit
+) :
     PagedListAdapter<MovieEntity, LatestMoviesViewHolder>(DIFF_CALLBACK) {
     override fun onBindViewHolder(holder: LatestMoviesViewHolder, position: Int) {
         val movie: MovieEntity? = getItem(position)
 
-        holder.bind(movie)
+        holder.bind(movie, clickCallback)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LatestMoviesViewHolder {

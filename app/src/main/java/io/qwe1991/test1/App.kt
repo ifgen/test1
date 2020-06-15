@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.room.Room
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import io.qwe1991.test1.base.KodeinViewModelFactory
 import io.qwe1991.test1.data.MovieEntityConverter
 import io.qwe1991.test1.data.TmdbApiService
@@ -29,6 +30,7 @@ class App : Application(), KodeinAware {
 
         bind<Moshi>() with singleton {
             Moshi.Builder()
+                .add(KotlinJsonAdapterFactory())
                 .build()
         }
 
@@ -62,11 +64,8 @@ class App : Application(), KodeinAware {
         // view models
         bind<ViewModelProvider.Factory>() with singleton { KodeinViewModelFactory(kodein) }
 
-        bind<LatestMoviesViewModel>() with singleton {
-            LatestMoviesViewModel(
-                this@App
-            )
-        }
+        bind<LatestMoviesViewModel>() with singleton { LatestMoviesViewModel(this@App) }
+        bind<MovieDetailViewModel>() with singleton { MovieDetailViewModel(this@App) }
 
         bind<TmdbRepository>() with singleton { TmdbRepository(instance<TmdbApiService>()) }
 

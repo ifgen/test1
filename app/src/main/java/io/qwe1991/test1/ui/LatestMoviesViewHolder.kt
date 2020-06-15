@@ -12,9 +12,13 @@ class LatestMoviesViewHolder constructor(
     private val binding: ItemLatestMovieBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(item: MovieEntity?) {
+    fun bind(item: MovieEntity?, clickCallback: (movie: MovieEntity) -> Unit) {
         binding.movie = item
         binding.executePendingBindings()
+
+        binding.root.setOnClickListener {
+            item?.let{ clickCallback(it) }
+        }
 
         if (item?.posterPath != null) {
             val circularProgressDrawable = CircularProgressDrawable(binding.root.context)
@@ -30,7 +34,7 @@ class LatestMoviesViewHolder constructor(
                 .transform(RoundedCorners(16))
 
                 .placeholder(circularProgressDrawable)
-                .into(binding.root.latestMovieImage);
+                .into(binding.root.latestMovieImage)
         }
     }
 }

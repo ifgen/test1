@@ -1,10 +1,12 @@
 package io.qwe1991.test1.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.widget.Toast
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import io.qwe1991.test1.MainActivity
 import io.qwe1991.test1.R
 import io.qwe1991.test1.base.BaseBindingFragment
@@ -28,12 +30,17 @@ class LatestMoviesFragment :
 
         viewModel.loadMoviesList()
 
-        val adapter = LatestMoviesAdapter()
+        val adapter = LatestMoviesAdapter {
+            findNavController().navigate(
+                LatestMoviesFragmentDirections.actionLatestMoviesFragmentToMovieDetailFragment(it)
+            )
+        }
 
         viewModel.lengthOfPostsList.observe(viewLifecycleOwner, Observer { adapter.submitList(it) })
         latestMoviesRv.adapter = adapter
 
         viewModel.error.observe(viewLifecycleOwner, Observer {
+            Log.e("@!", "err", it)
             Toast.makeText(requireContext(), it.localizedMessage, Toast.LENGTH_SHORT).show()
         })
     }

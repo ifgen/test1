@@ -38,10 +38,13 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "TMDB_API_KEY", '"ebea8cfca72fdff8d2624ad7bbf78e4c"'
+            buildConfigField "boolean", "ENABLE_LOGGING", 'false'
         }
 
         debug {
             buildConfigField "String", "TMDB_API_KEY", '"ebea8cfca72fdff8d2624ad7bbf78e4c"'
+            buildConfigField "boolean", "ENABLE_LOGGING", 'true'
         }
     }
 }

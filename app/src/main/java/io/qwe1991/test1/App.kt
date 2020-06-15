@@ -38,12 +38,12 @@ class App : Application(), KodeinAware {
         bind<OkHttpClient>() with singleton {
             val httpBuilder = OkHttpClient.Builder()
             @Suppress("ConstantConditionIf")
-//            if (BuildConfig.ENABLE_LOGGING) {
+            if (BuildConfig.ENABLE_LOGGING) {
                 val httpLoggingInterceptor = HttpLoggingInterceptor()
                 httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
                 httpBuilder.interceptors()
                     .add(httpLoggingInterceptor)
-//            }
+            }
 
 //            httpBuilder.addInterceptor(ApiHeaderInterceptor(instance(), instance()))
             httpBuilder.build()
